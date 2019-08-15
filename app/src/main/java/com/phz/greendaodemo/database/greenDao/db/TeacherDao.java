@@ -247,8 +247,8 @@ public class TeacherDao extends AbstractDao<Teacher, Long> {
         Teacher entity = loadCurrent(cursor, 0, lock);
         int offset = getAllColumns().length;
 
-        IdCard student = loadCurrentOther(daoSession.getIdCardDao(), cursor, offset);
-        entity.setStudent(student);
+        IdCard tIdcard = loadCurrentOther(daoSession.getIdCardDao(), cursor, offset);
+        entity.setTIdcard(tIdcard);
 
         return entity;    
     }

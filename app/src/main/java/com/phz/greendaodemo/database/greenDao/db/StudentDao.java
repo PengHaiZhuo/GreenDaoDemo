@@ -261,8 +261,8 @@ public class StudentDao extends AbstractDao<Student, Long> {
         Student entity = loadCurrent(cursor, 0, lock);
         int offset = getAllColumns().length;
 
-        IdCard student = loadCurrentOther(daoSession.getIdCardDao(), cursor, offset);
-        entity.setStudent(student);
+        IdCard sIdCard = loadCurrentOther(daoSession.getIdCardDao(), cursor, offset);
+        entity.setSIdCard(sIdCard);
 
         return entity;    
     }

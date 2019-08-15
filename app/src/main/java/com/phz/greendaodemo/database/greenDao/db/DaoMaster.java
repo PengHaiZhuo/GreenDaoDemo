@@ -21,20 +21,20 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        SampleDao.createTable(db, ifNotExists);
-        StudentDao.createTable(db, ifNotExists);
         CreditCardDao.createTable(db, ifNotExists);
         IdCardDao.createTable(db, ifNotExists);
+        SampleDao.createTable(db, ifNotExists);
+        StudentDao.createTable(db, ifNotExists);
         StudentAndTeacherBeanDao.createTable(db, ifNotExists);
         TeacherDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        SampleDao.dropTable(db, ifExists);
-        StudentDao.dropTable(db, ifExists);
         CreditCardDao.dropTable(db, ifExists);
         IdCardDao.dropTable(db, ifExists);
+        SampleDao.dropTable(db, ifExists);
+        StudentDao.dropTable(db, ifExists);
         StudentAndTeacherBeanDao.dropTable(db, ifExists);
         TeacherDao.dropTable(db, ifExists);
     }
@@ -55,18 +55,20 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(SampleDao.class);
-        registerDaoClass(StudentDao.class);
         registerDaoClass(CreditCardDao.class);
         registerDaoClass(IdCardDao.class);
+        registerDaoClass(SampleDao.class);
+        registerDaoClass(StudentDao.class);
         registerDaoClass(StudentAndTeacherBeanDao.class);
         registerDaoClass(TeacherDao.class);
     }
 
+    @Override
     public DaoSession newSession() {
         return new DaoSession(db, IdentityScopeType.Session, daoConfigMap);
     }
 
+    @Override
     public DaoSession newSession(IdentityScopeType type) {
         return new DaoSession(db, type, daoConfigMap);
     }

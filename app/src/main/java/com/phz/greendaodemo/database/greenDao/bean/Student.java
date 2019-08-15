@@ -55,7 +55,7 @@ public class Student {
     String grade;
 
     @ToOne(joinProperty = "name")
-    IdCard student;
+    IdCard sIdCard;
 
     @ToMany(referencedJoinProperty = "studentId")
     List<CreditCard> creditCardsList;
@@ -69,15 +69,10 @@ public class Student {
     /** Used for active entity operations. */
     @Generated(hash = 1943931642)
     private transient StudentDao myDao;
-    @Generated(hash = 635690445)
-    private transient String student__resolvedKey;
-
-    public Student() {
-    }
 
     @Generated(hash = 1071002287)
-    public Student(Long id, int studentNo, int age, String telPhone, String sex,
-                   String name, String address, String schoolName, String grade) {
+    public Student(Long id, int studentNo, int age, String telPhone, String sex, String name, String address,
+            String schoolName, String grade) {
         this.id = id;
         this.studentNo = studentNo;
         this.age = age;
@@ -89,8 +84,12 @@ public class Student {
         this.grade = grade;
     }
 
+    @Generated(hash = 1556870573)
+    public Student() {
+    }
+
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -98,7 +97,7 @@ public class Student {
     }
 
     public int getStudentNo() {
-        return studentNo;
+        return this.studentNo;
     }
 
     public void setStudentNo(int studentNo) {
@@ -106,7 +105,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public void setAge(int age) {
@@ -114,7 +113,7 @@ public class Student {
     }
 
     public String getTelPhone() {
-        return telPhone;
+        return this.telPhone;
     }
 
     public void setTelPhone(String telPhone) {
@@ -122,7 +121,7 @@ public class Student {
     }
 
     public String getSex() {
-        return sex;
+        return this.sex;
     }
 
     public void setSex(String sex) {
@@ -130,7 +129,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -138,7 +137,7 @@ public class Student {
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
     public void setAddress(String address) {
@@ -146,7 +145,7 @@ public class Student {
     }
 
     public String getSchoolName() {
-        return schoolName;
+        return this.schoolName;
     }
 
     public void setSchoolName(String schoolName) {
@@ -154,39 +153,42 @@ public class Student {
     }
 
     public String getGrade() {
-        return grade;
+        return this.grade;
     }
 
     public void setGrade(String grade) {
         this.grade = grade;
     }
 
+    @Generated(hash = 1894530216)
+    private transient String sIdCard__resolvedKey;
+
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 137743110)
-    public IdCard getStudent() {
+    @Generated(hash = 1830050909)
+    public IdCard getSIdCard() {
         String __key = this.name;
-        if (student__resolvedKey == null || student__resolvedKey != __key) {
+        if (sIdCard__resolvedKey == null || sIdCard__resolvedKey != __key) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             IdCardDao targetDao = daoSession.getIdCardDao();
-            IdCard studentNew = targetDao.load(__key);
+            IdCard sIdCardNew = targetDao.load(__key);
             synchronized (this) {
-                student = studentNew;
-                student__resolvedKey = __key;
+                sIdCard = sIdCardNew;
+                sIdCard__resolvedKey = __key;
             }
         }
-        return student;
+        return sIdCard;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1847551028)
-    public void setStudent(IdCard student) {
+    @Generated(hash = 1850153881)
+    public void setSIdCard(IdCard sIdCard) {
         synchronized (this) {
-            this.student = student;
-            name = student == null ? null : student.getUserName();
-            student__resolvedKey = name;
+            this.sIdCard = sIdCard;
+            name = sIdCard == null ? null : sIdCard.getUserName();
+            sIdCard__resolvedKey = name;
         }
     }
 
@@ -288,4 +290,5 @@ public class Student {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getStudentDao() : null;
     }
+
 }

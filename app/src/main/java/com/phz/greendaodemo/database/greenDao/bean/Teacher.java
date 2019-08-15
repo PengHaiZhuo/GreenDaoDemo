@@ -37,7 +37,7 @@ public class Teacher {
     String schoolName;
     String subject;
     @ToOne(joinProperty = "name")
-    IdCard student;
+    IdCard tIdcard;
 
     @ToMany(referencedJoinProperty = "id")
     List<CreditCard> creditCardsList;
@@ -133,35 +133,35 @@ public class Teacher {
         this.subject = subject;
     }
 
-    @Generated(hash = 635690445)
-    private transient String student__resolvedKey;
+    @Generated(hash = 737654585)
+    private transient String tIdcard__resolvedKey;
 
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 137743110)
-    public IdCard getStudent() {
+    @Generated(hash = 1747490767)
+    public IdCard getTIdcard() {
         String __key = this.name;
-        if (student__resolvedKey == null || student__resolvedKey != __key) {
+        if (tIdcard__resolvedKey == null || tIdcard__resolvedKey != __key) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             IdCardDao targetDao = daoSession.getIdCardDao();
-            IdCard studentNew = targetDao.load(__key);
+            IdCard tIdcardNew = targetDao.load(__key);
             synchronized (this) {
-                student = studentNew;
-                student__resolvedKey = __key;
+                tIdcard = tIdcardNew;
+                tIdcard__resolvedKey = __key;
             }
         }
-        return student;
+        return tIdcard;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1847551028)
-    public void setStudent(IdCard student) {
+    @Generated(hash = 280785070)
+    public void setTIdcard(IdCard tIdcard) {
         synchronized (this) {
-            this.student = student;
-            name = student == null ? null : student.getUserName();
-            student__resolvedKey = name;
+            this.tIdcard = tIdcard;
+            name = tIdcard == null ? null : tIdcard.getUserName();
+            tIdcard__resolvedKey = name;
         }
     }
 
